@@ -1,0 +1,206 @@
+<html>
+
+<head>
+    <title>Sign up</title>
+
+<style>
+
+.main{
+    background-color: white;
+    width: 500px;
+    height: 600px;
+    text-align: center;
+    border: 2px solid rgb(166, 208, 204);
+    margin-left: 520px;
+}
+
+.t1 , .t2 , .t3 , .t4{
+    width: 400px;
+    height: 49px; 
+    border-radius: 20px;   
+    border-color: white;
+    background-color: rgb(166, 208, 204);
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#lbtn{
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(166, 208, 204);
+    color: white;
+    font-size: 15pt;
+}
+
+.or{
+    position: absolute;
+    margin-top: 110px;
+    margin-left: -110px;
+}
+
+.gbtn{
+    margin-top: 160px;
+    margin-left: -200px;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(166, 208, 204);
+    color: white;
+    font-size: 13pt;
+    position: absolute;
+}
+
+.alrdy{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -198px;
+}
+
+.alrdlink{
+    text-decoration: none; 
+}
+
+#userl {
+       position: absolute;
+       margin-top: 47px;
+       margin-right: 180px;
+       font-size: 10pt;
+}
+
+#emaill {
+    position: absolute;
+    margin-top: 117px;
+    margin-right: 180px;
+    font-size: 10pt;
+}
+
+#pswdl {
+    position: absolute;
+    margin-top: 187px;
+    margin-right: 180px;
+    font-size: 10pt;
+}
+
+#conl {
+    position: absolute;
+    margin-top: 257px;
+    margin-right: 180px;
+    font-size: 10pt;
+}
+
+</style>  
+
+<script>
+
+function uservalidate() {
+  var user = document.getElementById('username');
+  var letters = /^[a-zA-Z._]+$/;
+
+  if(user.value == "" ) {
+    document.getElementById('userl').innerText = "Please enter the user name";
+    userl.style.color = "red";
+    }
+  else if(!user.value.match(letters)) {
+    userl.innerText = "Your user name should be only letters";
+    userl.style.color = "red";
+  } 
+  else {
+    userl.innerText = "";
+  } 
+}
+
+function emailvalidate() {
+  var mail = document.getElementById('email');
+  var letters = /^[a-zA-Z 0-9@.]+$/;
+
+  if(mail.value == "" ) {
+    document.getElementById('emaill').innerText = "Please enter your email";
+    emaill.style.color = "red";
+    }
+  else if(!mail.value.match(letters)) {
+    emaill.innerText = "Invalid mail address";
+    emaill.style.color = "red";
+  } 
+  else {
+    emaill.innerText = "";
+  } 
+}
+
+function passwordvalidate() {
+  var pswd = document.getElementById('password');
+  
+  if(pswd.value == "" ) {
+    document.getElementById('pswdl').innerText = "Please make your password";
+    pswdl.style.color = "red";
+    } 
+  else if(pswd.value.length < 8) {
+    pswdl.innerText = "You have to create strong password";
+    pswdl.style.color = "red";
+  }  
+  else {
+    pswdl.innerText = "";
+  } 
+}
+
+function confirmvalidate() {
+  var pswd = document.getElementById('password');  
+  var cnfm = document.getElementById('confirm');
+  
+  if(cnfm.value == "" ) {
+    document.getElementById('conl').innerText = "Please confirm your password";
+    conl.style.color = "red";
+    } 
+  else if(pswd.value!==cnfm.value) {
+    document.getElementById('conl').innerText = "Password is not matching";
+    conl.style.color = "red";
+  }
+  else {
+    conl.innerText = "";
+  } 
+}
+
+/*var form = document.getElementById('form')                  Submit button without refresh
+
+form.addEventListener('submit',function(event) {
+    event.preventDefault()
+})*/
+
+</script>
+
+</head>
+
+<body>
+
+<form method="post" id="form" >      
+    
+<div class="main">
+
+<h1>Sign up</h1>
+<h3>Create your account</h3>
+<div class="inputs"> <input class="t1" type="text" placeholder="     User name" id="username" name="username" onblur="uservalidate()" required> <label id="userl"></label>
+                     <input class="t2" type="text" placeholder="     Email" id="email" name="email" onblur="emailvalidate()" required> <label id="emaill"></label>
+                     <input class="t3" type="password" placeholder="     Create a password" id="password" name="password" onblur="passwordvalidate()" required> <label id="pswdl"></label>
+                     <input class="t4" type="password" placeholder="     Confirm your password" id="confirm" name="confirm" onblur="confirmvalidate()" required> <label id="conl"></label> </div>
+<input type="submit" id="lbtn" name="signup" value="Sign Up" onclick="btn()">
+<label class="or">Or</label>
+
+<label class="alrdy">Alredy have an account? <a class="alrdlink" href="http://localhost/CV_Project_Web/login.php">Login</a> </label>
+
+</div>
+
+</form>
+
+</body>
+
+<script>
+
+</script>
+
+</html>
